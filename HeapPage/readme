@@ -1,0 +1,21 @@
+// To compile the code
+cmake ../HeapPage
+
+// To recompule the code after cmake
+make
+
+// To run the executable file
+./minibase-heappage
+
+// For this project, put all code into spacemgr/HeapPage.cpp
+// TO BE IMPLEMENTED:
+Init
+GetNextPage
+GetPrevPage
+SetNextPage
+SetPrevPage
+InsertRecord
+
+
+
+
