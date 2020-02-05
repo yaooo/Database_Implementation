@@ -260,7 +260,7 @@ void HeapPage::CompactSlotDir(){
 
 			// move the non-empty slot to the empty spot
 			slots[i - count] = slots[i];
-			SLOT_SET_EMPTY(Slot[i-count]);
+			SLOT_SET_EMPTY(slots[i-count]);
 		}
 	}
 	// update parameters
