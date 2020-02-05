@@ -66,7 +66,6 @@ public:
 	int    AvailableSpace(void);
 	bool   IsEmpty(void);
 	int    GetNumOfRecords();
-	bool   invalidSlot(const RecordID& rid);
 };
 
 #define SLOT_IS_EMPTY(s)  ((s).length == INVALID_SLOT)
