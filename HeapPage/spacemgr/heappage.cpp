@@ -249,8 +249,23 @@ bool HeapPage::IsEmpty(void){
 
 
 void HeapPage::CompactSlotDir(){
-  // Complete this method to get the S+ mark.
-  // This method is not required for an S mark.
+	int count = 0;	// number of empty slots
+	int length = 0;	//data length + size of slots
+
+	for(int i = 0; i < numOfSlots; i++){
+		if(slots[i].length == -1){
+			count ++;
+		}else{
+			length += slots[i].length + sizeof(Slot);
+
+			// move the non-empty slot to the empty spot
+			slots[i - count] = slots[i];
+			SLOT_SET_EMPTY(Slot[i-count]);
+		}
+	}
+	// update parameters
+	numOfSlots -= count;
+	freeSpace = length;
 }
 
 int HeapPage::GetNumOfRecords(){
