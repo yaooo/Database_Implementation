@@ -44,7 +44,7 @@ PageID HeapPage::GetPrevPage(){
 
 bool HeapPage::invalidSlot(const RecordID& rid){
 	return (rid.pageNo != pid || rid.slotNo >= numOfSlots ||
-		rid.slotNo < 0 || SLOT_IS_EMPTY(slots[rid.slotNo]));
+		rid.slotNo < 0 || slots[rid.slotNo].length == -1);
 }
 //------------------------------------------------------------------
 // HeapPage::InsertRecord
@@ -58,20 +58,17 @@ bool HeapPage::invalidSlot(const RecordID& rid){
 
 Status HeapPage::InsertRecord(char *recPtr, int length, RecordID& rid)
 {
+	if(AvailableSpace() < length) return DONE;
+
 	int index = 0;
 	while(index < numOfSlots){
-		if(SLOT_IS_EMPTY(slots[index])){
+		if(slots[index].length == -1){
 			break;
 		}
 		index++;
 	}
 
-	int memory = length;
-	if(index >= numOfSlots){
-		memory += sizeof(Slot);
-	}
-
-	if(AvailableSpace() < memory) return DONE;
+	int memory = length + ((index >= numOfSlots)? sizeof(Slot):0);
 
 	// enough memory
 	SLOT_FILL(slots[index], fillPtr, length);
@@ -79,11 +76,11 @@ Status HeapPage::InsertRecord(char *recPtr, int length, RecordID& rid)
 	// insert new record
 	memcpy(&data[HEAPPAGE_DATA_SIZE - fillPtr - length], recPtr, length);
 	
+	if(index >= numOfSlots)	numOfSlots++;
 	rid.pageNo = pid;
 	rid.slotNo = index;
 	freeSpace -= memory;
 	fillPtr += length;
-	numOfSlots += (index >= numOfSlots) ? 1:0;
 	return OK;
 
 }
@@ -105,32 +102,27 @@ Status HeapPage::DeleteRecord(const RecordID& rid){
 
 	int length = slots[rid.slotNo].length;
 	int offset = slots[rid.slotNo].offset;
-	
-	// length of the moved bits
-	int len = 0;
-	int i = 0;
-	while(i < sizeof(slots)/sizeof(Slot)){
-		if(!SLOT_IS_EMPTY(slots[i]) && slots[i].offset > offset){
-			slots[i].offset -= length;
-			len = slots[i].length;
-			break;
+
+	// directly remove the last slot 
+	if(numOfSlots - 1 == rid.slotNo){
+		numOfSlots--;
+		freeSpace += sizeof(Slot);
+	}else{
+		// length of the moved bits
+		int len = 0;
+		for(int i = 0; i < sizeof(slots)/sizeof(Slot); i++){
+			if(slots[i].length != -1 && slots[i].offset > offset){
+				slots[i].offset -= length;
+				len += slots[i].length;
+			}
 		}
-		i++;
+		memmove(&data[HEAPPAGE_DATA_SIZE - fillPtr + length], &data[HEAPPAGE_DATA_SIZE - fillPtr], len);
 	}
-	memmove(&data[HEAPPAGE_DATA_SIZE - fillPtr + length], &data[HEAPPAGE_DATA_SIZE - fillPtr], len);
-	
+
 	// make updates over the removed slot, and other parameters
 	freeSpace += length;
 	fillPtr -= length;
-
-	if (numOfSlots - 1 == rid.slotNo){
-		numOfSlots--;
-		freeSpace += sizeof(Slot);
-	}
-
 	slots[rid.slotNo].length = -1;
-	slots[rid.slotNo].length = -1;
-	
 	return OK;
 }
 
@@ -173,7 +165,7 @@ Status HeapPage::NextRecord (RecordID curRid, RecordID& nextRid){
 	}
 
 	for (int i = curRid.slotNo + 1; i < numOfSlots; i++){
-		if (!SLOT_IS_EMPTY(slots[i])){
+		if (slots[i].length != -1){
 			nextRid.pageNo = pid;
 			nextRid.slotNo = i;
 			return OK;
