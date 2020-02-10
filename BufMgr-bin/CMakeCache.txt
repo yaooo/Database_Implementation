@@ -222,6 +222,12 @@ JOINS_LIB:FILEPATH=/home/yash/Documents/Oxford/Database_implementation/BufMgr/li
 //Single output directory for building all libraries.
 LIBRARY_OUTPUT_PATH:PATH=
 
+//Value Computed by CMake
+Project_BINARY_DIR:STATIC=/home/yash/Documents/Oxford/Database_implementation/BufMgr-bin
+
+//Value Computed by CMake
+Project_SOURCE_DIR:STATIC=/home/yash/Documents/Oxford/Database_implementation/BufMgr
+
 //Path to a library.
 SPACEMGR_LIB:FILEPATH=/home/yash/Documents/Oxford/Database_implementation/BufMgr/lib/libspacemgr.a
 

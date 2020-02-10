@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/bufmgr.dir/bufmgr.o"
   "CMakeFiles/bufmgr.dir/bmtest.o"
+  "CMakeFiles/bufmgr.dir/frame.o"
   "libbufmgr.pdb"
   "libbufmgr.a"
 )

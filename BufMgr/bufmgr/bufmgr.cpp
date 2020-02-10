@@ -13,6 +13,12 @@
 BufMgr::BufMgr( int bufSize )
 {
 	//TODO: add your code here
+	numOfBuf = bufSize;
+	frames = new Frame*[bufSize];
+	for(int i = 0; i <bufSize; i++){
+		frames[i] = new Frame();
+	}
+	
 }
 
 
@@ -26,6 +32,10 @@ BufMgr::BufMgr( int bufSize )
 BufMgr::~BufMgr()
 {   
 	//TODO: add your code here
+	for(int i = 0; i < numOfBuf; i++){
+		// delete frames[i];
+	}
+	// delete [] frames;
 }
 
 //--------------------------------------------------------------------

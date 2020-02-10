@@ -155,6 +155,21 @@ bufmgr.s:
 	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/bufmgr.s
 .PHONY : bufmgr.s
 
+# target to build an object file
+frame.o:
+	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/frame.o
+.PHONY : frame.o
+
+# target to preprocess a source file
+frame.i:
+	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/frame.i
+.PHONY : frame.i
+
+# target to generate assembly for a file
+frame.s:
+	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/frame.s
+.PHONY : frame.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -170,6 +185,9 @@ help:
 	@echo "... bufmgr.o"
 	@echo "... bufmgr.i"
 	@echo "... bufmgr.s"
+	@echo "... frame.o"
+	@echo "... frame.i"
+	@echo "... frame.s"
 .PHONY : help
 
 

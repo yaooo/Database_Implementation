@@ -1,30 +1,30 @@
 #include "../include/frame.h"
-#inlcude "../include/db.h"
+#include "../include/db.h"
 
 Frame:: Frame(){
-	pid = -1;
-	data = new Page();
-	pinCount = 0;
-	dirty = 0;
-	referenced = false;
+	this -> pid = -1;
+	this -> data = new Page();
+	this -> pinCount = 0;
+	this -> dirty = 0;
+	this -> referenced = false;
 }
 
 Frame:: ~Frame(){
 	delete data;
 }
 void Frame:: Pin(){
-	pinCount ++；
+	pinCount ++;
 }
 void Frame:: Unpin(){
 	pinCount --;
 }
 
 void Frame:: EmptyIt(){
-	pid = -1;
-	data = new Page();
-	pinCount = 0;
-	dirty = 0;
-	referenced = false;
+	this -> pid = -1;
+	this -> data = new Page();
+	this -> pinCount = 0;
+	this -> dirty = 0;
+	this -> referenced = false;
 }
 
 void Frame:: DirtyIt(){
@@ -44,15 +44,54 @@ Bool Frame:: IsValid(){
 }
 
 Status Frame:: Write(){
-
+	return MINIBASE_DB -> WritePage(pid, data);
 }
-Status Frame:: Read(PageID pid);
-Status Frame:: Free();
-Bool Frame:: NotPinned();
-Bool Frame:: HasPageID(PageID pid);
-PageID Frame:: GetPageID();
-Page Frame:: *GetPage();
 
-void UnsetReferenced();
-Bool IsReferenced();
-Bool IsVictim();
+Status Frame:: Read(PageID pid){
+	if(MINIBASE_DB -> ReadPage(pid, data) != OK){
+		return FAIL;
+	}
+	this-> pid = pid;
+	return OK;
+}
+
+// Status Frame:: Free(){
+// 	if(pinCount > 1)
+// 		return FAIL;
+
+// 	if(pinCount == 1)
+// 		Unpin();
+
+// 	Status status = MINIBASE_DB -> DeallocatePage(pid);
+// 	if(status == OK)
+// 		EmptyIt();
+	
+// 	return status;
+// }
+
+Bool Frame:: NotPinned(){
+	return pinCount == 0;
+}
+
+Bool Frame:: HasPageID(PageID pid){
+	return this->pid == pid;
+}
+
+PageID Frame:: GetPageID(){
+	return this->pid;
+}
+
+Page* Frame:: GetPage(){
+	return data;
+}
+
+// void UnsetReferenced(){
+// 	referenced = false;
+// }
+// Bool IsReferenced(){
+// 	return referenced;
+//}
+
+// Bool IsVictim(){
+// 	return (pinCount == 0 && !referenced);
+// }
