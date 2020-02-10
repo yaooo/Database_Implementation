@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbufmgr.a  CMakeFiles/bufmgr.dir/bufmgr.o CMakeFiles/bufmgr.dir/bmtest.o
+/usr/bin/ranlib libbufmgr.a
