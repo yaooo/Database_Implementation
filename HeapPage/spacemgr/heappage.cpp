@@ -249,22 +249,22 @@ bool HeapPage::IsEmpty(void){
 
 
 void HeapPage::CompactSlotDir(){
-	int count = 0;	// number of empty slots
+	int offset = 0;	// number of empty slots
 	int length = 0;	//data length + size of slots
 
 	for(int i = 0; i < numOfSlots; i++){
-		if(slots[i].length == -1){
-			count ++;
+		if(slots[i].length == -1){ // find invalid slot, increase the offset
+			offset ++;
 		}else{
 			length += slots[i].length + sizeof(Slot);
 
 			// move the non-empty slot to the empty spot
-			slots[i - count] = slots[i];
-			SLOT_SET_EMPTY(slots[i-count]);
+			slots[i - offset] = slots[i];
+			SLOT_SET_EMPTY(slots[i-offset]);
 		}
 	}
 	// update parameters
-	numOfSlots -= count;
+	numOfSlots -= offset;
 	freeSpace = length;
 }
 
