@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yash/Documents/Oxford/Database_implementation/BufMgr
+CMAKE_SOURCE_DIR = /home/yash/Documents/Oxford/Database-implementation/BufMgr
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin
+CMAKE_BINARY_DIR = /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin
 
 # Include any dependencies generated for this target.
 include CMakeFiles/minibase-bufmgr.dir/depend.make
@@ -58,30 +58,30 @@ include CMakeFiles/minibase-bufmgr.dir/progress.make
 include CMakeFiles/minibase-bufmgr.dir/flags.make
 
 CMakeFiles/minibase-bufmgr.dir/main.o: CMakeFiles/minibase-bufmgr.dir/flags.make
-CMakeFiles/minibase-bufmgr.dir/main.o: /home/yash/Documents/Oxford/Database_implementation/BufMgr/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yash/Documents/Oxford/Database_implementation/BufMgr-bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/minibase-bufmgr.dir/main.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/minibase-bufmgr.dir/main.o -c /home/yash/Documents/Oxford/Database_implementation/BufMgr/main.cpp
+CMakeFiles/minibase-bufmgr.dir/main.o: /home/yash/Documents/Oxford/Database-implementation/BufMgr/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/minibase-bufmgr.dir/main.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/minibase-bufmgr.dir/main.o -c /home/yash/Documents/Oxford/Database-implementation/BufMgr/main.cpp
 
 CMakeFiles/minibase-bufmgr.dir/main.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/minibase-bufmgr.dir/main.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yash/Documents/Oxford/Database_implementation/BufMgr/main.cpp > CMakeFiles/minibase-bufmgr.dir/main.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yash/Documents/Oxford/Database-implementation/BufMgr/main.cpp > CMakeFiles/minibase-bufmgr.dir/main.i
 
 CMakeFiles/minibase-bufmgr.dir/main.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/minibase-bufmgr.dir/main.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yash/Documents/Oxford/Database_implementation/BufMgr/main.cpp -o CMakeFiles/minibase-bufmgr.dir/main.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yash/Documents/Oxford/Database-implementation/BufMgr/main.cpp -o CMakeFiles/minibase-bufmgr.dir/main.s
 
 CMakeFiles/minibase-bufmgr.dir/test.o: CMakeFiles/minibase-bufmgr.dir/flags.make
-CMakeFiles/minibase-bufmgr.dir/test.o: /home/yash/Documents/Oxford/Database_implementation/BufMgr/test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yash/Documents/Oxford/Database_implementation/BufMgr-bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/minibase-bufmgr.dir/test.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/minibase-bufmgr.dir/test.o -c /home/yash/Documents/Oxford/Database_implementation/BufMgr/test.cpp
+CMakeFiles/minibase-bufmgr.dir/test.o: /home/yash/Documents/Oxford/Database-implementation/BufMgr/test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/minibase-bufmgr.dir/test.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/minibase-bufmgr.dir/test.o -c /home/yash/Documents/Oxford/Database-implementation/BufMgr/test.cpp
 
 CMakeFiles/minibase-bufmgr.dir/test.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/minibase-bufmgr.dir/test.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yash/Documents/Oxford/Database_implementation/BufMgr/test.cpp > CMakeFiles/minibase-bufmgr.dir/test.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yash/Documents/Oxford/Database-implementation/BufMgr/test.cpp > CMakeFiles/minibase-bufmgr.dir/test.i
 
 CMakeFiles/minibase-bufmgr.dir/test.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/minibase-bufmgr.dir/test.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yash/Documents/Oxford/Database_implementation/BufMgr/test.cpp -o CMakeFiles/minibase-bufmgr.dir/test.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yash/Documents/Oxford/Database-implementation/BufMgr/test.cpp -o CMakeFiles/minibase-bufmgr.dir/test.s
 
 # Object files for target minibase-bufmgr
 minibase__bufmgr_OBJECTS = \
@@ -94,16 +94,16 @@ minibase__bufmgr_EXTERNAL_OBJECTS =
 minibase-bufmgr: CMakeFiles/minibase-bufmgr.dir/main.o
 minibase-bufmgr: CMakeFiles/minibase-bufmgr.dir/test.o
 minibase-bufmgr: CMakeFiles/minibase-bufmgr.dir/build.make
-minibase-bufmgr: /home/yash/Documents/Oxford/Database_implementation/BufMgr/lib/libjoins.a
-minibase-bufmgr: /home/yash/Documents/Oxford/Database_implementation/BufMgr/lib/libbtree.a
-minibase-bufmgr: /home/yash/Documents/Oxford/Database_implementation/BufMgr/lib/libspacemgr.a
+minibase-bufmgr: /home/yash/Documents/Oxford/Database-implementation/BufMgr/lib/libjoins.a
+minibase-bufmgr: /home/yash/Documents/Oxford/Database-implementation/BufMgr/lib/libbtree.a
+minibase-bufmgr: /home/yash/Documents/Oxford/Database-implementation/BufMgr/lib/libspacemgr.a
 minibase-bufmgr: bufmgr/libbufmgr.a
-minibase-bufmgr: /home/yash/Documents/Oxford/Database_implementation/BufMgr/lib/libspacemgr.a
-minibase-bufmgr: /home/yash/Documents/Oxford/Database_implementation/BufMgr/lib/libglobaldefs.a
-minibase-bufmgr: /home/yash/Documents/Oxford/Database_implementation/BufMgr/lib/libspacemgr.a
-minibase-bufmgr: /home/yash/Documents/Oxford/Database_implementation/BufMgr/lib/libglobaldefs.a
+minibase-bufmgr: /home/yash/Documents/Oxford/Database-implementation/BufMgr/lib/libspacemgr.a
+minibase-bufmgr: /home/yash/Documents/Oxford/Database-implementation/BufMgr/lib/libglobaldefs.a
+minibase-bufmgr: /home/yash/Documents/Oxford/Database-implementation/BufMgr/lib/libspacemgr.a
+minibase-bufmgr: /home/yash/Documents/Oxford/Database-implementation/BufMgr/lib/libglobaldefs.a
 minibase-bufmgr: CMakeFiles/minibase-bufmgr.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yash/Documents/Oxford/Database_implementation/BufMgr-bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable minibase-bufmgr"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable minibase-bufmgr"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/minibase-bufmgr.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -116,6 +116,6 @@ CMakeFiles/minibase-bufmgr.dir/clean:
 .PHONY : CMakeFiles/minibase-bufmgr.dir/clean
 
 CMakeFiles/minibase-bufmgr.dir/depend:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yash/Documents/Oxford/Database_implementation/BufMgr /home/yash/Documents/Oxford/Database_implementation/BufMgr /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin/CMakeFiles/minibase-bufmgr.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yash/Documents/Oxford/Database-implementation/BufMgr /home/yash/Documents/Oxford/Database-implementation/BufMgr /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/CMakeFiles/minibase-bufmgr.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/minibase-bufmgr.dir/depend
 

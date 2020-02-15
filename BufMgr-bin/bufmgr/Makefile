@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yash/Documents/Oxford/Database_implementation/BufMgr
+CMAKE_SOURCE_DIR = /home/yash/Documents/Oxford/Database-implementation/BufMgr
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin
+CMAKE_BINARY_DIR = /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(CMAKE_COMMAND) -E cmake_progress_start /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin/CMakeFiles /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin/bufmgr/CMakeFiles/progress.marks
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f CMakeFiles/Makefile2 bufmgr/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin/CMakeFiles 0
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(CMAKE_COMMAND) -E cmake_progress_start /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/CMakeFiles /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/bufmgr/CMakeFiles/progress.marks
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f CMakeFiles/Makefile2 bufmgr/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f CMakeFiles/Makefile2 bufmgr/clean
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f CMakeFiles/Makefile2 bufmgr/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f CMakeFiles/Makefile2 bufmgr/preinstall
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f CMakeFiles/Makefile2 bufmgr/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f CMakeFiles/Makefile2 bufmgr/preinstall
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f CMakeFiles/Makefile2 bufmgr/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 bufmgr/CMakeFiles/bufmgr.dir/rule:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f CMakeFiles/Makefile2 bufmgr/CMakeFiles/bufmgr.dir/rule
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f CMakeFiles/Makefile2 bufmgr/CMakeFiles/bufmgr.dir/rule
 .PHONY : bufmgr/CMakeFiles/bufmgr.dir/rule
 
 # Convenience name for target.
@@ -122,52 +122,52 @@ bufmgr: bufmgr/CMakeFiles/bufmgr.dir/rule
 
 # fast build rule for target.
 bufmgr/fast:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/build
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/build
 .PHONY : bufmgr/fast
 
 # target to build an object file
 bmtest.o:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/bmtest.o
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/bmtest.o
 .PHONY : bmtest.o
 
 # target to preprocess a source file
 bmtest.i:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/bmtest.i
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/bmtest.i
 .PHONY : bmtest.i
 
 # target to generate assembly for a file
 bmtest.s:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/bmtest.s
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/bmtest.s
 .PHONY : bmtest.s
 
 # target to build an object file
 bufmgr.o:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/bufmgr.o
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/bufmgr.o
 .PHONY : bufmgr.o
 
 # target to preprocess a source file
 bufmgr.i:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/bufmgr.i
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/bufmgr.i
 .PHONY : bufmgr.i
 
 # target to generate assembly for a file
 bufmgr.s:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/bufmgr.s
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/bufmgr.s
 .PHONY : bufmgr.s
 
 # target to build an object file
 frame.o:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/frame.o
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/frame.o
 .PHONY : frame.o
 
 # target to preprocess a source file
 frame.i:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/frame.i
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/frame.i
 .PHONY : frame.i
 
 # target to generate assembly for a file
 frame.s:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/frame.s
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/frame.s
 .PHONY : frame.s
 
 # Help Target
@@ -199,6 +199,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/yash/Documents/Oxford/Database_implementation/BufMgr-bin && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

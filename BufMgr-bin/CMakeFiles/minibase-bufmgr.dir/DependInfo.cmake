@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/yash/Documents/Oxford/Database_implementation/BufMgr/main.cpp" "/home/yash/Documents/Oxford/Database_implementation/BufMgr-bin/CMakeFiles/minibase-bufmgr.dir/main.o"
-  "/home/yash/Documents/Oxford/Database_implementation/BufMgr/test.cpp" "/home/yash/Documents/Oxford/Database_implementation/BufMgr-bin/CMakeFiles/minibase-bufmgr.dir/test.o"
+  "/home/yash/Documents/Oxford/Database-implementation/BufMgr/main.cpp" "/home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/CMakeFiles/minibase-bufmgr.dir/main.o"
+  "/home/yash/Documents/Oxford/Database-implementation/BufMgr/test.cpp" "/home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/CMakeFiles/minibase-bufmgr.dir/test.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -15,7 +15,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/yash/Documents/Oxford/Database_implementation/BufMgr-bin/bufmgr/CMakeFiles/bufmgr.dir/DependInfo.cmake"
+  "/home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/bufmgr/CMakeFiles/bufmgr.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

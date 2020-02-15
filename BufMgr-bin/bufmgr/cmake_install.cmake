@@ -1,4 +1,4 @@
-# Install script for directory: /home/yash/Documents/Oxford/Database_implementation/BufMgr/bufmgr
+# Install script for directory: /home/yash/Documents/Oxford/Database-implementation/BufMgr/bufmgr
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
