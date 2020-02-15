@@ -55,19 +55,13 @@ Status Frame:: Read(PageID pid){
 	return OK;
 }
 
-// Status Frame:: Free(){
-// 	if(pinCount > 1)
-// 		return FAIL;
+Status Frame:: Free(){
+	if(pinCount > 1)
+		return FAIL;
+	EmptyIt();
 
-// 	if(pinCount == 1)
-// 		Unpin();
-
-// 	Status status = MINIBASE_DB -> DeallocatePage(pid);
-// 	if(status == OK)
-// 		EmptyIt();
-	
-// 	return status;
-// }
+	return MINIBASE_DB -> DeallocatePage(pid);
+}
 
 Bool Frame:: NotPinned(){
 	return pinCount == 0;
