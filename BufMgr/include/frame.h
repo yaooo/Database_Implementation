@@ -14,6 +14,7 @@ class Frame
 		int    pinCount;
 		int    dirty;
 		Bool referenced;
+		clock_t timestamp;
 
 	public :
 		
@@ -37,6 +38,7 @@ class Frame
 		void UnsetReferenced();
 		Bool IsReferenced();
 		Bool IsVictim();
+		clock_t GetTimestamp();
 
 };
 

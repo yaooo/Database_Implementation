@@ -2,33 +2,39 @@
 #include "../include/db.h"
 
 Frame:: Frame(){
-	this -> pid = -1;
 	this -> data = new Page();
-	this -> pinCount = 0;
-	this -> dirty = 0;
-	this -> referenced = false;
+	EmptyIt();
 }
 
 Frame:: ~Frame(){
+	if (this->IsDirty())
+	{
+		this->Write();
+	}
 	delete data;
 }
 void Frame:: Pin(){
 	pinCount ++;
 }
+
 void Frame:: Unpin(){
-	pinCount --;
+	if(pinCount > 0){
+		pinCount --;
+		if(this -> NotPinned())
+			this-> timestamp = clock();
+	}
 }
 
 void Frame:: EmptyIt(){
 	this -> pid = -1;
-	this -> data = new Page();
 	this -> pinCount = 0;
-	this -> dirty = 0;
+	this -> dirty = false;
+	this -> timestamp = clock();
 	this -> referenced = false;
 }
 
 void Frame:: DirtyIt(){
-	dirty = 1;
+	dirty = true;
 }
 
 void Frame:: SetPageID(PageID pid){
@@ -36,7 +42,7 @@ void Frame:: SetPageID(PageID pid){
 }
 
 Bool Frame:: IsDirty(){
-	return this-> dirty == 1;
+	return this-> dirty;
 }
 
 Bool Frame:: IsValid(){
@@ -58,8 +64,8 @@ Status Frame:: Read(PageID pid){
 Status Frame:: Free(){
 	if(pinCount > 1)
 		return FAIL;
-	EmptyIt();
-
+	PageID pid = this -> pid;
+	this -> EmptyIt();
 	return MINIBASE_DB -> DeallocatePage(pid);
 }
 
@@ -79,13 +85,8 @@ Page* Frame:: GetPage(){
 	return data;
 }
 
-// void UnsetReferenced(){
-// 	referenced = false;
-// }
-// Bool IsReferenced(){
-// 	return referenced;
-//}
 
-// Bool IsVictim(){
-// 	return (pinCount == 0 && !referenced);
-// }
+clock_t Frame::GetTimestamp()
+{
+	return this->timestamp;
+}

@@ -36,3 +36,13 @@ bufmgr/CMakeFiles/bufmgr.dir/frame.o: /home/yash/Documents/Oxford/Database-imple
 bufmgr/CMakeFiles/bufmgr.dir/frame.o: /home/yash/Documents/Oxford/Database-implementation/BufMgr/include/page.h
 bufmgr/CMakeFiles/bufmgr.dir/frame.o: /home/yash/Documents/Oxford/Database-implementation/BufMgr/include/system_defs.h
 
+bufmgr/CMakeFiles/bufmgr.dir/replacer.o: /home/yash/Documents/Oxford/Database-implementation/BufMgr/bufmgr/replacer.cpp
+bufmgr/CMakeFiles/bufmgr.dir/replacer.o: /home/yash/Documents/Oxford/Database-implementation/BufMgr/include/da_types.h
+bufmgr/CMakeFiles/bufmgr.dir/replacer.o: /home/yash/Documents/Oxford/Database-implementation/BufMgr/include/frame.h
+bufmgr/CMakeFiles/bufmgr.dir/replacer.o: /home/yash/Documents/Oxford/Database-implementation/BufMgr/include/hash.h
+bufmgr/CMakeFiles/bufmgr.dir/replacer.o: /home/yash/Documents/Oxford/Database-implementation/BufMgr/include/minirel.h
+bufmgr/CMakeFiles/bufmgr.dir/replacer.o: /home/yash/Documents/Oxford/Database-implementation/BufMgr/include/new_error.h
+bufmgr/CMakeFiles/bufmgr.dir/replacer.o: /home/yash/Documents/Oxford/Database-implementation/BufMgr/include/page.h
+bufmgr/CMakeFiles/bufmgr.dir/replacer.o: /home/yash/Documents/Oxford/Database-implementation/BufMgr/include/replacer.h
+bufmgr/CMakeFiles/bufmgr.dir/replacer.o: /home/yash/Documents/Oxford/Database-implementation/BufMgr/include/system_defs.h
+

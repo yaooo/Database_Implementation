@@ -170,6 +170,21 @@ frame.s:
 	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/frame.s
 .PHONY : frame.s
 
+# target to build an object file
+replacer.o:
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/replacer.o
+.PHONY : replacer.o
+
+# target to preprocess a source file
+replacer.i:
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/replacer.i
+.PHONY : replacer.i
+
+# target to generate assembly for a file
+replacer.s:
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin && $(MAKE) -f bufmgr/CMakeFiles/bufmgr.dir/build.make bufmgr/CMakeFiles/bufmgr.dir/replacer.s
+.PHONY : replacer.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -188,6 +203,9 @@ help:
 	@echo "... frame.o"
 	@echo "... frame.i"
 	@echo "... frame.s"
+	@echo "... replacer.o"
+	@echo "... replacer.i"
+	@echo "... replacer.s"
 .PHONY : help
 
 

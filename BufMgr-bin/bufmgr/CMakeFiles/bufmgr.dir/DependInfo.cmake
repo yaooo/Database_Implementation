@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/yash/Documents/Oxford/Database-implementation/BufMgr/bufmgr/bmtest.cpp" "/home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/bufmgr/CMakeFiles/bufmgr.dir/bmtest.o"
   "/home/yash/Documents/Oxford/Database-implementation/BufMgr/bufmgr/bufmgr.cpp" "/home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/bufmgr/CMakeFiles/bufmgr.dir/bufmgr.o"
   "/home/yash/Documents/Oxford/Database-implementation/BufMgr/bufmgr/frame.cpp" "/home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/bufmgr/CMakeFiles/bufmgr.dir/frame.o"
+  "/home/yash/Documents/Oxford/Database-implementation/BufMgr/bufmgr/replacer.cpp" "/home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/bufmgr/CMakeFiles/bufmgr.dir/replacer.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

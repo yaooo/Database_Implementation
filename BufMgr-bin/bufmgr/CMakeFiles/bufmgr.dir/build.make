@@ -96,11 +96,25 @@ bufmgr/CMakeFiles/bufmgr.dir/frame.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bufmgr.dir/frame.s"
 	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/bufmgr && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yash/Documents/Oxford/Database-implementation/BufMgr/bufmgr/frame.cpp -o CMakeFiles/bufmgr.dir/frame.s
 
+bufmgr/CMakeFiles/bufmgr.dir/replacer.o: bufmgr/CMakeFiles/bufmgr.dir/flags.make
+bufmgr/CMakeFiles/bufmgr.dir/replacer.o: /home/yash/Documents/Oxford/Database-implementation/BufMgr/bufmgr/replacer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object bufmgr/CMakeFiles/bufmgr.dir/replacer.o"
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/bufmgr && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bufmgr.dir/replacer.o -c /home/yash/Documents/Oxford/Database-implementation/BufMgr/bufmgr/replacer.cpp
+
+bufmgr/CMakeFiles/bufmgr.dir/replacer.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bufmgr.dir/replacer.i"
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/bufmgr && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yash/Documents/Oxford/Database-implementation/BufMgr/bufmgr/replacer.cpp > CMakeFiles/bufmgr.dir/replacer.i
+
+bufmgr/CMakeFiles/bufmgr.dir/replacer.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bufmgr.dir/replacer.s"
+	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/bufmgr && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yash/Documents/Oxford/Database-implementation/BufMgr/bufmgr/replacer.cpp -o CMakeFiles/bufmgr.dir/replacer.s
+
 # Object files for target bufmgr
 bufmgr_OBJECTS = \
 "CMakeFiles/bufmgr.dir/bufmgr.o" \
 "CMakeFiles/bufmgr.dir/bmtest.o" \
-"CMakeFiles/bufmgr.dir/frame.o"
+"CMakeFiles/bufmgr.dir/frame.o" \
+"CMakeFiles/bufmgr.dir/replacer.o"
 
 # External object files for target bufmgr
 bufmgr_EXTERNAL_OBJECTS =
@@ -108,9 +122,10 @@ bufmgr_EXTERNAL_OBJECTS =
 bufmgr/libbufmgr.a: bufmgr/CMakeFiles/bufmgr.dir/bufmgr.o
 bufmgr/libbufmgr.a: bufmgr/CMakeFiles/bufmgr.dir/bmtest.o
 bufmgr/libbufmgr.a: bufmgr/CMakeFiles/bufmgr.dir/frame.o
+bufmgr/libbufmgr.a: bufmgr/CMakeFiles/bufmgr.dir/replacer.o
 bufmgr/libbufmgr.a: bufmgr/CMakeFiles/bufmgr.dir/build.make
 bufmgr/libbufmgr.a: bufmgr/CMakeFiles/bufmgr.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libbufmgr.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libbufmgr.a"
 	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/bufmgr && $(CMAKE_COMMAND) -P CMakeFiles/bufmgr.dir/cmake_clean_target.cmake
 	cd /home/yash/Documents/Oxford/Database-implementation/BufMgr-bin/bufmgr && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bufmgr.dir/link.txt --verbose=$(VERBOSE)
 
