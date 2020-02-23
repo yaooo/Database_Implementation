@@ -8,6 +8,7 @@
 .cache
 .history
 .lib/
+.DS_Store
 dist/*
 target/
 lib_managed/
@@ -15,10 +16,11 @@ src_managed/
 project/boot/
 project/plugins/project/
 HeapPage-bin/
-bufmgr-bin/
+BufMgr-bin/
 
-# Scala-IDE specific
+# IDE specific
 .scala_dependencies
 .worksheet
 .idea/
 .metadata/
+.vscode/
