@@ -15,8 +15,7 @@ lib_managed/
 src_managed/
 project/boot/
 project/plugins/project/
-HeapPage-bin/
-BufMgr-bin/
+*-bin/
 
 # IDE specific
 .scala_dependencies
