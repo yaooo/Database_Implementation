@@ -30,6 +30,51 @@
 
 
 
-void TupleNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, long& pinRequests, long& pinMisses, double& duration)
-{
+void TupleNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, long& pinRequests, long& pinMisses, double& duration){
+    MINIBASE_BM->ResetStat();
+    clock_t start = clock();
+    Status status = OK;
+
+    // scan the frist file
+    Scan* scanR = specOfR.file -> OpenScan(status);
+    if(status != OK){
+        exit(1);
+    }
+
+    // create heap file for the final result
+    HeapFile* res = new HeapFile(NULL, status);
+    if(status != OK){
+        exit(1);
+    }
+
+    int recLenR = specOfR.recLen;
+    int recLenS = specOfS.recLen;
+    int recLenT = recLenS + recLenS;
+
+    int offsetR = specOfR.offset;
+    int offsetS = specOfS.offset;
+
+    char* recPtrR = new char[recLenR];
+    char* recPtrS = new char[recLenS];
+    char* resPtrT = new char[recLenT];
+
+    RecordID ridR, ridS, ridT;
+
+    while(scanR->GetNext(ridR, recPtrR, recLenR) == OK){
+        Scan* scanS = specOfS.file -> OpenScan(status);
+        if(status != OK){
+            exit(1);
+        }
+        int* joinAttrR = (int *)(recPtrR + offsetR);
+
+        while(scanS->GetNext(ridS, recPtrS, recLenS) == OK){
+            int* joinAttrS = (int *)(recPtrS + offsetS);
+            if(joinAttrR == joinAttrS){
+                MakeNewRecord(resPtrT, recPtrR, recPtrS, recLenR, recLenS);
+                res->InsertRecord(resPtrT, recLenT, ridT);
+            }
+        }
+    }
+
+
 }
