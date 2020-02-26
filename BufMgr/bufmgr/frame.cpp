@@ -3,7 +3,11 @@
 
 Frame:: Frame(){
 	this -> data = new Page();
-	EmptyIt();
+	this -> pid = -1;
+	this -> pinCount = 0;
+	this -> dirty = false;
+	this -> timestamp = clock();
+	this -> referenced = false;
 }
 
 Frame:: ~Frame(){

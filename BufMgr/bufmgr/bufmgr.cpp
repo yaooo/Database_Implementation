@@ -17,7 +17,6 @@ BufMgr::BufMgr( int bufSize )
 		frames[i] = new Frame();
 	}
 	replacer = new Clock(bufSize, frames);
-	ResetStat();
 }
 
 
@@ -87,13 +86,12 @@ Status BufMgr::PinPage(PageID pid, Page*& page, bool isEmpty)
 			}
 		}
 	}else{
+		frame = frames[index];
 		totalHit++;
 	}
 
-	if (OK == status){
-		this->frames[index]->Pin();
-		page = this->frames[index]->GetPage();
-	}
+	frame->Pin();
+	page = frame->GetPage();
 
 	return status;
 } 
