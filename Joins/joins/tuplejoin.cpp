@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <ctime>
 
 #include "../include/minirel.h"
 #include "../include/heapfile.h"
@@ -32,8 +33,10 @@
 
 void TupleNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, long& pinRequests, long& pinMisses, double& duration){
     MINIBASE_BM->ResetStat();
-    clock_t start = clock();
     Status status = OK;
+
+    std::clock_t start;
+    start = std::clock();
 
     // scan the frist file
     Scan* scanR = specOfR.file -> OpenScan(status);
@@ -56,7 +59,7 @@ void TupleNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, long& pinRequests, 
 
     char* recPtrR = new char[recLenR];
     char* recPtrS = new char[recLenS];
-    char* resPtrT = new char[recLenT];
+    char* recPtrT = new char[recLenT];
 
     RecordID ridR, ridS, ridT;
 
@@ -70,11 +73,17 @@ void TupleNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, long& pinRequests, 
         while(scanS->GetNext(ridS, recPtrS, recLenS) == OK){
             int* joinAttrS = (int *)(recPtrS + offsetS);
             if(joinAttrR == joinAttrS){
-                MakeNewRecord(resPtrT, recPtrR, recPtrS, recLenR, recLenS);
-                res->InsertRecord(resPtrT, recLenT, ridT);
+                MakeNewRecord(recPtrT, recPtrR, recPtrS, recLenR, recLenS);
+                res->InsertRecord(recPtrT, recLenT, ridT);
             }
         }
+        delete scanS;
     }
 
+    delete scanR;
+    delete[] recPtrR, recPtrS, recPtrT;
+    delete res;
 
+    MINIBASE_BM->GetStat(pinRequests, pinMisses);
+    duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
 }

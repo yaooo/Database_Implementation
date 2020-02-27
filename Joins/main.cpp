@@ -12,11 +12,22 @@ int MINIBASE_RESTART_FLAG = 0;// used in minibase part
 
 #define NUM_OF_DB_PAGES  2000 // define # of DB pages
 #define NUM_OF_BUF_PAGES 50 // define Buf manager size.You will need to change this for the analysis
+#define ITERATION 20.0
+
+void printStat(string name, int pinRequests, int pinMisses, double duration){
+	cout << name << ":\nStats after "<< (int)ITERATION << " iterations" << endl;
+	cout << "pinRequests: " << pinRequests/ITERATION << endl;
+	cout << "pinMisses: " << pinMisses/ITERATION << endl;
+	cout << "duration: " << duration/ITERATION << "s\n" << endl;
+}
 
 int main()
 {
 	Status s;
 
+	long pinRequests = 0;
+	long pinMisses = 0;
+	double duration = 0;
 
 	//
 	// Initialize Minibase's Global Variables
@@ -56,14 +67,37 @@ int main()
 	CreateSpecForR(specOfR);
 	CreateSpecForS(specOfS);
 
-	// 
-	// Do your joining here.
-	//
-	
-	//
-	// The end.
-	//
-    
+	string name;
+	int x, y; double z;
+
+	// Tuple join
+	name = "Tuple Join";
+	for(int i = 0; i < ITERATION; i++){
+		TupleNestedLoopJoin(specOfR, specOfS, pinRequests, pinMisses, duration);
+		x += pinRequests; y += pinMisses; z += duration;
+	}
+	printStat(name, x, y, z);
+	x=0;y=0;z=0;
+
+	// Block nested join
+	name = "Block-nested Join";
+	int B = (MINIBASE_BM->GetNumOfBuffers()-3*3)*MINIBASE_PAGESIZE;
+	for(int i = 0; i < ITERATION; i++){
+		BlockNestedLoopJoin(specOfR, specOfS, B, pinRequests, pinMisses, duration);
+		x += pinRequests; y += pinMisses; z += duration;
+	}
+	printStat(name, x, y, z);
+	x=0;y=0;z=0;
+
+	// Index join
+	name = "Index Join";
+	for(int i = 0; i < ITERATION; i++){
+		IndexNestedLoopJoin(specOfR, specOfS, pinRequests, pinMisses, duration);
+		x += pinRequests; y += pinMisses; z += duration;
+	}
+	printStat(name, x, y, z);
+	x=0;y=0;z=0;
+
     //delete the created database
     remove("MINIBASE.DB");
 
