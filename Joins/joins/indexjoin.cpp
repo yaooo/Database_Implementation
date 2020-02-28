@@ -97,15 +97,15 @@ void IndexNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, long& pinRequests, 
 
     int recLenR = specOfR.recLen;
     int recLenS = specOfS.recLen;
-    int recLenT = recLenS + recLenS;
+    int recLenRes = recLenS + recLenS;
 
     int offsetR = specOfR.offset;
 
     char* recPtrR = new char[recLenR];
     char* recPtrS = new char[recLenS];
-    char* recPtrT = new char[recLenT];
+    char* recPtrRes = new char[recLenRes];
 
-    RecordID ridR, ridS, ridT;
+    RecordID ridR, ridS, ridRes;
 
 
     while(scanR->GetNext(ridR, recPtrR, recLenR) == OK){
@@ -114,8 +114,8 @@ void IndexNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, long& pinRequests, 
         BTreeFileScan  *btreeScan = (BTreeFileScan*)btree->OpenSearchScan(joinAttrR, joinAttrR);
         while(OK == btreeScan -> GetNext(ridS, &key)){
             specOfS.file -> GetRecord(ridS, recPtrS, recLenS);
-            MakeNewRecord(recPtrT, recPtrR, recPtrS, recLenR, recLenS);
-            res->InsertRecord(recPtrT, recLenT, ridT);
+            MakeNewRecord(recPtrRes, recPtrR, recPtrS, recLenR, recLenS);
+            res->InsertRecord(recPtrRes, recLenRes, ridRes);
         }
         delete btreeScan;
     }
@@ -124,7 +124,7 @@ void IndexNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, long& pinRequests, 
     btree->DestroyFile();
 	delete btree;
     delete scanR;
-    delete[] recPtrR, recPtrS, recPtrT;
+    delete[] recPtrR, recPtrS, recPtrRes;
     delete res;
 
     MINIBASE_BM->GetStat(pinRequests, pinMisses);

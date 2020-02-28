@@ -20,6 +20,10 @@ typedef struct JoinSpec {
 
 #define NUM_OF_REC_IN_R 10000 // # of records in R
 #define NUM_OF_REC_IN_S 2500 // # of records in S
+
+// #define NUM_OF_REC_IN_R 1000 // # of records in R
+// #define NUM_OF_REC_IN_S 250 // # of records in S
+
 #define NUM_OF_ATTR_IN_R 6
 #define NUM_OF_ATTR_IN_S 4
 

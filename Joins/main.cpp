@@ -11,95 +11,100 @@
 int MINIBASE_RESTART_FLAG = 0;// used in minibase part
 
 #define NUM_OF_DB_PAGES  2000 // define # of DB pages
-#define NUM_OF_BUF_PAGES 50 // define Buf manager size.You will need to change this for the analysis
+// #define NUM_OF_BUF_PAGES 50 // define Buf manager size.You will need to change this for the analysis
 #define ITERATION 20.0
 
 void printStat(string name, int pinRequests, int pinMisses, double duration){
 	cout << name << ":\nStats after "<< (int)ITERATION << " iterations" << endl;
-	cout << "pinRequests: " << pinRequests/ITERATION << endl;
-	cout << "pinMisses: " << pinMisses/ITERATION << endl;
-	cout << "duration: " << duration/ITERATION << "s\n" << endl;
+	cout << "Average pinRequests: " << pinRequests/ITERATION << endl;
+	cout << "Average pinMisses: " << pinMisses/ITERATION << endl;
+	cout << "Average duration: " << duration/ITERATION << "s\n" << endl;
 }
 
 int main()
 {
 	Status s;
 
+	int NUM_OF_BUF_PAGES[5] = {20, 50, 100, 200, 500};
 	long pinRequests = 0;
 	long pinMisses = 0;
 	double duration = 0;
 
-	//
-	// Initialize Minibase's Global Variables
-	//
+	for(int i : NUM_OF_BUF_PAGES){
+		//
+		// Initialize Minibase's Global Variables
+		//
+		cout << "\nNumber of buffer pages = " << i << endl;
+		cout << "Number of Records in R:" << NUM_OF_REC_IN_R << " -- Number of records in S:" << NUM_OF_REC_IN_S << endl;
 
-	minibase_globals = new SystemDefs(s, 
-		"MINIBASE.DB",
-		"MINIBASE.LOG",
-		NUM_OF_DB_PAGES,   // Number of pages allocated for database
-		500,
-		NUM_OF_BUF_PAGES,  // Number of frames in buffer pool
-		NULL);
-	
-	//
-	// Initialize random seed
-	//
+		cout << "----------------------------------------"<<endl;
 
-	srand(1);
+		minibase_globals = new SystemDefs(s, 
+			"MINIBASE.DB",
+			"MINIBASE.LOG",
+			NUM_OF_DB_PAGES,   // Number of pages allocated for database
+			500,
+			i,  // Number of frames in buffer pool
+			NULL);
+		
+		//
+		// Initialize random seed
+		//
+		srand(1);
 
-	//
-	// Create Random Relations R(outer relation) and S for joining. The definition is in relation.h, 
-	// # of tuples: NUM_OF_REC_IN_R, NUM_OF_REC_IN_S in join.h
-	//  
-	//
+		//
+		// Create Random Relations R(outer relation) and S for joining. The definition is in relation.h, 
+		// # of tuples: NUM_OF_REC_IN_R, NUM_OF_REC_IN_S in join.h
+		//
 
-	cerr << "Creating random records for relation R\n";
-	CreateR();
-	cerr << "Creating random records for relation S\n";
-	CreateS();
+		cerr << "Creating random records for relation R\n";
+		CreateR();
+		cerr << "Creating random records for relation S\n";
+		CreateS();
 
-	//
-	// Initialize the specification for joins
-	//
+		//
+		// Initialize the specification for joins
+		//
 
-	JoinSpec specOfS, specOfR;
+		JoinSpec specOfS, specOfR;
 
-	CreateSpecForR(specOfR);
-	CreateSpecForS(specOfS);
+		CreateSpecForR(specOfR);
+		CreateSpecForS(specOfS);
 
-	string name;
-	int x, y; double z;
+		string name;
+		int x, y; double z;
 
-	// Tuple join
-	name = "Tuple Join";
-	for(int i = 0; i < ITERATION; i++){
-		TupleNestedLoopJoin(specOfR, specOfS, pinRequests, pinMisses, duration);
-		x += pinRequests; y += pinMisses; z += duration;
+		// Tuple join
+		name = "Tuple Join";
+		for(int i = 0; i < ITERATION; i++){
+			TupleNestedLoopJoin(specOfR, specOfS, pinRequests, pinMisses, duration);
+			x += pinRequests; y += pinMisses; z += duration;
+		}
+		printStat(name, x, y, z);
+		x=0;y=0;z=0;
+
+		// Block nested join
+		name = "Block-nested Join";
+		int B = (MINIBASE_BM->GetNumOfBuffers()-3*3)*MINIBASE_PAGESIZE;
+		for(int i = 0; i < ITERATION; i++){
+			BlockNestedLoopJoin(specOfR, specOfS, B, pinRequests, pinMisses, duration);
+			x += pinRequests; y += pinMisses; z += duration;
+		}
+		printStat(name, x, y, z);
+		x=0;y=0;z=0;
+
+		// Index join
+		name = "Index Join";
+		for(int i = 0; i < ITERATION; i++){
+			IndexNestedLoopJoin(specOfR, specOfS, pinRequests, pinMisses, duration);
+			x += pinRequests; y += pinMisses; z += duration;
+		}
+		printStat(name, x, y, z);
+		x=0;y=0;z=0;
+
+		//delete the created database
+		remove("MINIBASE.DB");
+		delete minibase_globals;
 	}
-	printStat(name, x, y, z);
-	x=0;y=0;z=0;
-
-	// Block nested join
-	name = "Block-nested Join";
-	int B = (MINIBASE_BM->GetNumOfBuffers()-3*3)*MINIBASE_PAGESIZE;
-	for(int i = 0; i < ITERATION; i++){
-		BlockNestedLoopJoin(specOfR, specOfS, B, pinRequests, pinMisses, duration);
-		x += pinRequests; y += pinMisses; z += duration;
-	}
-	printStat(name, x, y, z);
-	x=0;y=0;z=0;
-
-	// Index join
-	name = "Index Join";
-	for(int i = 0; i < ITERATION; i++){
-		IndexNestedLoopJoin(specOfR, specOfS, pinRequests, pinMisses, duration);
-		x += pinRequests; y += pinMisses; z += duration;
-	}
-	printStat(name, x, y, z);
-	x=0;y=0;z=0;
-
-    //delete the created database
-    remove("MINIBASE.DB");
-
 	return 1;
 }

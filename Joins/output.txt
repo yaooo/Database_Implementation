@@ -1,0 +1,241 @@
+// Output
+/////////////////////////////////////////////////////////////////////////////
+Number of buffer pages = 20
+Number of Records in R:10000 -- Number of records in S:2500
+----------------------------------------
+Creating random records for relation R
+Creating random records for relation S
+Tuple Join:
+Stats after 20 iterations
+Average pinRequests: 530295
+Average pinMisses: 735151
+Average duration: 1.14053s
+
+Block-nested Join:
+Stats after 20 iterations
+Average pinRequests: 530295
+Average pinMisses: 520292
+Average duration: 1.11465s
+
+Index Join:
+Stats after 20 iterations
+Average pinRequests: 102509
+Average pinMisses: 20510.2
+Average duration: 0.0679227s
+
+
+Number of buffer pages = 50
+Number of Records in R:10000 -- Number of records in S:2500
+----------------------------------------
+Creating random records for relation R
+Creating random records for relation S
+Tuple Join:
+Stats after 20 iterations
+Average pinRequests: 530295
+Average pinMisses: 520292
+Average duration: 1.1444s
+
+Block-nested Join:
+Stats after 20 iterations
+Average pinRequests: 530295
+Average pinMisses: 520292
+Average duration: 1.13364s
+
+Index Join:
+Stats after 20 iterations
+Average pinRequests: 102509
+Average pinMisses: 14066.9
+Average duration: 0.0606728s
+
+
+Number of buffer pages = 100
+Number of Records in R:10000 -- Number of records in S:2500
+----------------------------------------
+Creating random records for relation R
+Creating random records for relation S
+Tuple Join:
+Stats after 20 iterations
+Average pinRequests: 530295
+Average pinMisses: 291.95
+Average duration: 0.592945s
+
+Block-nested Join:
+Stats after 20 iterations
+Average pinRequests: 530295
+Average pinMisses: 292
+Average duration: 0.582026s
+
+Index Join:
+Stats after 20 iterations
+Average pinRequests: 102509
+Average pinMisses: 4932.2
+Average duration: 0.0507842s
+
+
+Number of buffer pages = 200
+Number of Records in R:10000 -- Number of records in S:2500
+----------------------------------------
+Creating random records for relation R
+Creating random records for relation S
+Tuple Join:
+Stats after 20 iterations
+Average pinRequests: 530295
+Average pinMisses: 290.8
+Average duration: 0.619352s
+
+Block-nested Join:
+Stats after 20 iterations
+Average pinRequests: 530295
+Average pinMisses: 292
+Average duration: 0.613099s
+
+Index Join:
+Stats after 20 iterations
+Average pinRequests: 102509
+Average pinMisses: 727.05
+Average duration: 0.0468501s
+
+
+Number of buffer pages = 500
+Number of Records in R:10000 -- Number of records in S:2500
+----------------------------------------
+Creating random records for relation R
+Creating random records for relation S
+Tuple Join:
+Stats after 20 iterations
+Average pinRequests: 530295
+Average pinMisses: 1
+Average duration: 0.573765s
+
+Block-nested Join:
+Stats after 20 iterations
+Average pinRequests: 530295
+Average pinMisses: 1
+Average duration: 0.563763s
+
+Index Join:
+Stats after 20 iterations
+Average pinRequests: 102509
+Average pinMisses: 712.1
+Average duration: 0.0549729s
+
+/////////////////////////////////////////////////////////////////////////////
+
+Number of buffer pages = 20
+Number of Records in R:1000 -- Number of records in S:250
+----------------------------------------
+Creating random records for relation R
+Creating random records for relation S
+Tuple Join:
+Stats after 20 iterations
+Average pinRequests: 7036
+Average pinMisses: 214891
+Average duration: 0.0052337s
+
+Block-nested Join:
+Stats after 20 iterations
+Average pinRequests: 7036
+Average pinMisses: 32
+Average duration: 0.0052699s
+
+Index Join:
+Stats after 20 iterations
+Average pinRequests: 6892
+Average pinMisses: 126.05
+Average duration: 0.00222425s
+
+
+Number of buffer pages = 50
+Number of Records in R:1000 -- Number of records in S:250
+----------------------------------------
+Creating random records for relation R
+Creating random records for relation S
+Tuple Join:
+Stats after 20 iterations
+Average pinRequests: 7036
+Average pinMisses: 1
+Average duration: 0.00545435s
+
+Block-nested Join:
+Stats after 20 iterations
+Average pinRequests: 7036
+Average pinMisses: 1
+Average duration: 0.00534865s
+
+Index Join:
+Stats after 20 iterations
+Average pinRequests: 6892
+Average pinMisses: 75.65
+Average duration: 0.00188635s
+
+
+Number of buffer pages = 100
+Number of Records in R:1000 -- Number of records in S:250
+----------------------------------------
+Creating random records for relation R
+Creating random records for relation S
+Tuple Join:
+Stats after 20 iterations
+Average pinRequests: 7036
+Average pinMisses: 1
+Average duration: 0.0053371s
+
+Block-nested Join:
+Stats after 20 iterations
+Average pinRequests: 7036
+Average pinMisses: 1
+Average duration: 0.0053563s
+
+Index Join:
+Stats after 20 iterations
+Average pinRequests: 6892
+Average pinMisses: 46
+Average duration: 0.00176135s
+
+
+Number of buffer pages = 200
+Number of Records in R:1000 -- Number of records in S:250
+----------------------------------------
+Creating random records for relation R
+Creating random records for relation S
+Tuple Join:
+Stats after 20 iterations
+Average pinRequests: 7036
+Average pinMisses: 1
+Average duration: 0.00535195s
+
+Block-nested Join:
+Stats after 20 iterations
+Average pinRequests: 7036
+Average pinMisses: 1
+Average duration: 0.0053838s
+
+Index Join:
+Stats after 20 iterations
+Average pinRequests: 6892
+Average pinMisses: 46
+Average duration: 0.00178715s
+
+
+Number of buffer pages = 500
+Number of Records in R:1000 -- Number of records in S:250
+----------------------------------------
+Creating random records for relation R
+Creating random records for relation S
+Tuple Join:
+Stats after 20 iterations
+Average pinRequests: 7036
+Average pinMisses: 1
+Average duration: 0.0057184s
+
+Block-nested Join:
+Stats after 20 iterations
+Average pinRequests: 7036
+Average pinMisses: 1
+Average duration: 0.00539205s
+
+Index Join:
+Stats after 20 iterations
+Average pinRequests: 6892
+Average pinMisses: 46
+Average duration: 0.0017753s

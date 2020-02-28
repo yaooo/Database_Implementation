@@ -52,16 +52,16 @@ void TupleNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, long& pinRequests, 
 
     int recLenR = specOfR.recLen;
     int recLenS = specOfS.recLen;
-    int recLenT = recLenS + recLenS;
+    int recLenRes = recLenS + recLenS;
 
     int offsetR = specOfR.offset;
     int offsetS = specOfS.offset;
 
     char* recPtrR = new char[recLenR];
     char* recPtrS = new char[recLenS];
-    char* recPtrT = new char[recLenT];
+    char* recPtrRes = new char[recLenRes];
 
-    RecordID ridR, ridS, ridT;
+    RecordID ridR, ridS, ridRes;
 
     while(scanR->GetNext(ridR, recPtrR, recLenR) == OK){
         Scan* scanS = specOfS.file -> OpenScan(status);
@@ -73,15 +73,15 @@ void TupleNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, long& pinRequests, 
         while(scanS->GetNext(ridS, recPtrS, recLenS) == OK){
             int* joinAttrS = (int *)(recPtrS + offsetS);
             if(joinAttrR == joinAttrS){
-                MakeNewRecord(recPtrT, recPtrR, recPtrS, recLenR, recLenS);
-                res->InsertRecord(recPtrT, recLenT, ridT);
+                MakeNewRecord(recPtrRes, recPtrR, recPtrS, recLenR, recLenS);
+                res->InsertRecord(recPtrRes, recLenRes, ridRes);
             }
         }
         delete scanS;
     }
 
     delete scanR;
-    delete[] recPtrR, recPtrS, recPtrT;
+    delete[] recPtrR, recPtrS, recPtrRes;
     delete res;
 
     MINIBASE_BM->GetStat(pinRequests, pinMisses);

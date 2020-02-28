@@ -50,7 +50,7 @@ void BlockNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, int B, long& pinReq
 
     int recLenR = specOfR.recLen;
     int recLenS = specOfS.recLen;
-    int recLenT = recLenS + recLenS;
+    int recLenRes = recLenS + recLenS;
     int pagePerBlock = recLenR/B;
 
     int offsetR = specOfR.offset;
@@ -58,10 +58,10 @@ void BlockNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, int B, long& pinReq
 
     char* recPtrR = new char[recLenR];
     char* recPtrS = new char[recLenS];
-    char* recPtrT = new char[recLenT];
+    char* recPtrRes = new char[recLenRes];
     char* recPtrBlock = new char[B];
 
-    RecordID ridR, ridS, ridT;
+    RecordID ridR, ridS, ridRes;
 
     int index = 0;
 
@@ -83,8 +83,8 @@ void BlockNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, int B, long& pinReq
             for(int i = 0; i < pagePerBlock; i++){
                 int* joinAttrB = (int *)(recPtrBlock + i * recLenR + offsetR);
                 if(joinAttrB == joinAttrS){
-                MakeNewRecord(recPtrT, recPtrR, recPtrS, recLenR, recLenS);
-                res->InsertRecord(recPtrT, recLenT, ridT);
+                MakeNewRecord(recPtrRes, recPtrR, recPtrS, recLenR, recLenS);
+                res->InsertRecord(recPtrRes, recLenRes, ridRes);
             }
             }
         }
@@ -107,8 +107,8 @@ void BlockNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, int B, long& pinReq
             for(int i = 0; i < pagePerBlock; i++){
                 int* joinAttrB = (int *)(recPtrBlock + i * recLenR + offsetR);
                 if(joinAttrB == joinAttrS){
-                MakeNewRecord(recPtrT, recPtrR, recPtrS, recLenR, recLenS);
-                res->InsertRecord(recPtrT, recLenT, ridT);
+                MakeNewRecord(recPtrRes, recPtrR, recPtrS, recLenR, recLenS);
+                res->InsertRecord(recPtrRes, recLenRes, ridRes);
             }
             }
         }
@@ -118,7 +118,7 @@ void BlockNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, int B, long& pinReq
     }
 
     delete scanR;
-    delete[] recPtrR, recPtrS, recPtrT;
+    delete[] recPtrR, recPtrS, recPtrRes;
     delete res;
 
     MINIBASE_BM->GetStat(pinRequests, pinMisses);
