@@ -12,7 +12,7 @@ int MINIBASE_RESTART_FLAG = 0;// used in minibase part
 
 #define NUM_OF_DB_PAGES  2000 // define # of DB pages
 // #define NUM_OF_BUF_PAGES 50 // define Buf manager size.You will need to change this for the analysis
-#define ITERATION 20.0
+#define ITERATION 5.0
 
 void printStat(string name, int pinRequests, int pinMisses, double duration){
 	cout << name << ":\nStats after "<< (int)ITERATION << " iterations" << endl;
@@ -25,7 +25,7 @@ int main()
 {
 	Status s;
 
-	int NUM_OF_BUF_PAGES[5] = {20, 50, 100, 200, 500};
+	int NUM_OF_BUF_PAGES[1] = {100};
 	long pinRequests = 0;
 	long pinMisses = 0;
 	double duration = 0;

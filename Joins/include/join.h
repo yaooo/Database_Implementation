@@ -18,8 +18,8 @@ typedef struct JoinSpec {
 #define ATTR_INT  attrInteger
 #define ATTR_STRING attrString
 
-#define NUM_OF_REC_IN_R 10000 // # of records in R
-#define NUM_OF_REC_IN_S 2500 // # of records in S
+#define NUM_OF_REC_IN_R 500 // # of records in R
+#define NUM_OF_REC_IN_S 500 // # of records in S
 
 // #define NUM_OF_REC_IN_R 1000 // # of records in R
 // #define NUM_OF_REC_IN_S 250 // # of records in S

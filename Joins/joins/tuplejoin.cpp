@@ -32,27 +32,28 @@
 
 
 void TupleNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, long& pinRequests, long& pinMisses, double& duration){
-    MINIBASE_BM->ResetStat();
     Status status = OK;
-
+    MINIBASE_BM -> ResetStat();
     std::clock_t start;
     start = std::clock();
 
     // scan the frist file
     Scan* scanR = specOfR.file -> OpenScan(status);
     if(status != OK){
+        cerr << "ERROR : cannot open scan on the heapfile for specOfR.\n";
         exit(1);
     }
 
     // create heap file for the final result
     HeapFile* res = new HeapFile(NULL, status);
     if(status != OK){
+        cerr << "ERROR : cannot create a new heapfile.\n";
         exit(1);
     }
 
     int recLenR = specOfR.recLen;
     int recLenS = specOfS.recLen;
-    int recLenRes = recLenS + recLenS;
+    int recLenRes = recLenR + recLenS;
 
     int offsetR = specOfR.offset;
     int offsetS = specOfS.offset;
@@ -66,6 +67,7 @@ void TupleNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, long& pinRequests, 
     while(scanR->GetNext(ridR, recPtrR, recLenR) == OK){
         Scan* scanS = specOfS.file -> OpenScan(status);
         if(status != OK){
+            cerr << "ERROR : cannot open scan on the heapfile for specOfS.\n";
             exit(1);
         }
         int* joinAttrR = (int *)(recPtrR + offsetR);
@@ -75,6 +77,7 @@ void TupleNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, long& pinRequests, 
             if(joinAttrR == joinAttrS){
                 MakeNewRecord(recPtrRes, recPtrR, recPtrS, recLenR, recLenS);
                 res->InsertRecord(recPtrRes, recLenRes, ridRes);
+                break;
             }
         }
         delete scanS;

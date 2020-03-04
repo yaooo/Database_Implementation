@@ -35,13 +35,14 @@
 BTreeFile *buildBTree( JoinSpec specOfS)
 {
 	Status status = OK;
-
+    MINIBASE_BM -> ResetStat();
     std::clock_t start;
     start = std::clock();
 
     // build the heap file for the innere relation
     Scan *scan = specOfS.file ->OpenScan(status);
     if(status != OK){
+        cerr << "ERROR : cannot open scan on the heapfile for specOfS.\n";
         exit(1);
     }
 
@@ -74,30 +75,30 @@ void IndexNestedLoopJoin(JoinSpec specOfR, JoinSpec specOfS, long& pinRequests, 
     // scan the frist file
     Scan* scanR = specOfR.file -> OpenScan(status);
     if(status != OK){
+        cerr << "ERROR : cannot open scan on the heapfile for specOfR.\n";
         exit(1);
     }
 
     // build btree for s, and set up btreescan
     BTreeFile* btree = buildBTree(specOfS);
 
-	
-
     // build the btree for the innere relation
     specOfS.file ->OpenScan(status);
     if(status != OK){
+        cerr << "ERROR : cannot open scan on the heapfile for specOfS.\n";
         exit(1);
     }
-
 
     // create heap file for the final result
     HeapFile* res = new HeapFile(NULL, status);
     if(status != OK){
+        cerr << "ERROR : cannot create a new heapfile.\n";
         exit(1);
     }
 
     int recLenR = specOfR.recLen;
     int recLenS = specOfS.recLen;
-    int recLenRes = recLenS + recLenS;
+    int recLenRes = recLenR + recLenS;
 
     int offsetR = specOfR.offset;
 
